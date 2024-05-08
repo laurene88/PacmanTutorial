@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
-    public float speed = 8f;
+    public float speed = 2f;
     public float speedMultiplier = 1f;
     public Vector2 initialDirection;
     public LayerMask obstacleLayer;
@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
         enabled = true;
     }
 
-    private void FixedUpdate() //for physics stuff.
+    private void FixedUpdate()
     {
         //note fixed delta time used.
         //physics usually do in fixed update or else its inconsistent across computer
@@ -65,22 +65,22 @@ public class Movement : MonoBehaviour
 
     public void SetDirection(Vector2 direction, bool forced = false)
     {
-        Debug.Log("SetDirection");
-        if (forced || !Occupied(direction))
+        if (Occupied(direction))
         {
-            this.direction = direction; // if can move, move & reset next direction queue
+            Debug.Log("occupied- cant move");
+            nextDirection = direction;
+        }
+        if (forced || !Occupied(direction)) // if forced, or not occupied (can move), set direction to that, & clear 'next direction'
+        {
+            this.direction = direction; //immediately move if you can.
+            Debug.Log(direction);
             nextDirection = Vector2.zero; //clear queued direction
-            Debug.Log("setdirection & can move");
-        } else
-        {
-            nextDirection = direction;// if wall in the way, line up the direction as next.
-            Debug.Log("sset direction, cannot move.");
         }
     }
 
     public bool Occupied(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.75f, 0.0f, direction, 1.5f, obstacleLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0.0f, direction, 1f, obstacleLayer);
         return hit.collider != null; //if you hit something it wont be null. 
     }
 
