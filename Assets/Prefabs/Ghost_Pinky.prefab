@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 75719012334129546, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
+      propertyPath: initialBehaviour
+      value: 
+      objectReference: {fileID: 2348423821786370208}
     - target: {fileID: 75719012334129547, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
       propertyPath: direction.x
       value: 0
@@ -80,6 +84,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_Pinky
       objectReference: {fileID: 0}
+    - target: {fileID: 1477736675348336256, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
+      propertyPath: duration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
+--- !u!114 &2348423821786370208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1477736675348336256, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
+  m_PrefabInstance: {fileID: 3753396971345288736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1069b1085d3a554f8e1528890287257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

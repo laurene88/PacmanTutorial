@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (this.lives<=0 && Input.anyKeyDown) //restart after died
+        if (lives <=0 && Input.anyKeyDown) //restart after died
         {
             NewGame();
         }
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         //loop thru all of pellets & turn them back on.
         // this is why its a transform, so we can go thry all the children
-        foreach (Transform pellet in this.pellets)
+        foreach (Transform pellet in pellets)
         {
             pellet.gameObject.SetActive(true);
         }
@@ -54,11 +54,10 @@ public class GameManager : MonoBehaviour
     private void ResetState() //without restarting pellets
     {
         ResetGhostMultipler();
-        for (int i = 0; i < this.ghosts.Length; i++) {
-            this.ghosts[i].gameObject.SetActive(true);
+        for (int i = 0; i < ghosts.Length; i++) {
+            ghosts[i].ResetState();
         }
-
-        this.pacman.gameObject.SetActive(true);
+        pacman.ResetState();
     }
 
 
@@ -76,31 +75,33 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        for (int i = 0; i < this.ghosts.Length; i++)
+        Debug.Log("gameover");
+        for (int i = 0; i < ghosts.Length; i++)
         {
-            this.ghosts[i].gameObject.SetActive(false);
+            ghosts[i].gameObject.SetActive(false);
         }
 
-        this.pacman.gameObject.SetActive(false);
+        pacman.gameObject.SetActive(false);
     }
 
     public void GhostEaten(Ghost ghost)
     {
-        SetScore(this.score + (ghost.points * ghostMultiplier));
+        SetScore(score + (ghost.points * ghostMultiplier));
         ghostMultiplier += 1;
     }
 
     public void PacmanEaten()
     {
-        this.pacman.gameObject.SetActive(false); //turn off immediately
-        SetLives(this.lives -1);
+        pacman.gameObject.SetActive(false); //turn off immediately
+        SetLives(lives -1);
 
-        if (this.lives > 0)
+        if (lives > 0)
         {
             Invoke(nameof(ResetState),3f); //reseat ghosts & pacman, not pellets.
         }
         else
         {
+            Debug.Log("gameover called from pacman eaten");
             GameOver(); 
         }
     }
@@ -109,11 +110,11 @@ public class GameManager : MonoBehaviour
     {
         pellet.gameObject.SetActive(false);
 
-        SetScore(this.score + pellet.points);
+        SetScore(score + pellet.points);
 
         if (!HasRemainingPellets())
         {
-            this.pacman.gameObject.SetActive(false); //turn off so cant die in this changeover time. 
+            pacman.gameObject.SetActive(false); //turn off so cant die in this changeover time. 
             Invoke(nameof(NewRound), 3.0f);
         }
     }
@@ -134,7 +135,7 @@ public class GameManager : MonoBehaviour
  
     private bool HasRemainingPellets()
     {
-        foreach (Transform pellet in this.pellets)
+        foreach (Transform pellet in pellets)
         {
             if (pellet.gameObject.activeSelf)
             {

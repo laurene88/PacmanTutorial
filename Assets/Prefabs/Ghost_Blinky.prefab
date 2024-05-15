@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 75719012334129546, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
+      propertyPath: initialBehaviour
+      value: 
+      objectReference: {fileID: 5359010372666878936}
     - target: {fileID: 75719012334129557, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
       propertyPath: m_Name
       value: Ghost_Blinky
@@ -75,3 +79,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
+--- !u!114 &5359010372666878936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8189327253425842372, guid: 52683386f28e87d44b898cfa3ffe1d15, type: 3}
+  m_PrefabInstance: {fileID: 4321575708979495708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa256f153a6cd44085989a27eacf574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
