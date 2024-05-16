@@ -31,7 +31,7 @@ public class Ghost : MonoBehaviour
 
     public void ResetState()
     {
-        Debug.Log("reset ghost state - " + gameObject.name);
+       // Debug.Log("reset ghost state - " + gameObject.name);
         gameObject.SetActive(true);
         movement.ResetState();
 

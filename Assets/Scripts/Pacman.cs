@@ -36,13 +36,12 @@ public class Pacman : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
-        Debug.Log(collision.collider.name);
+        //Debug.Log("pacman collided with "+collision.collider.name);
     }
 
     public void ResetState()
     {
-        Debug.Log("resetpacman");
+      //  Debug.Log("resetpacman");
         this.movement.ResetState();
         this.gameObject.SetActive(true);
     }

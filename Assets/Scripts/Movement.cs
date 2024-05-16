@@ -67,13 +67,13 @@ public class Movement : MonoBehaviour
     {
         if (Occupied(direction))
         {
-            Debug.Log("occupied- cant move");
+           // Debug.Log("occupied- cant move");
             nextDirection = direction;
         }
         if (forced || !Occupied(direction)) // if forced, or not occupied (can move), set direction to that, & clear 'next direction'
         {
             this.direction = direction; //immediately move if you can.
-            Debug.Log(direction);
+            //Debug.Log(direction);
             nextDirection = Vector2.zero; //clear queued direction
         }
     }
