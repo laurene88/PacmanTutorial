@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,6 +21,14 @@ public class GhostHome : GhostBehaviour
         { 
           //  Debug.Log("staring coroutine on " + this.name + " meaning ive been disabled");
             StartCoroutine(ExitTransition());
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (this.enabled && collision.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
+        {
+            this.ghost.movement.SetDirection(-this.ghost.movement.direction);
         }
     }
 
