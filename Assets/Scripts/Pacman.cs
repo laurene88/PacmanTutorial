@@ -17,19 +17,19 @@ public class Pacman : MonoBehaviour
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
-            Debug.Log("up");
+            //Debug.Log("up");
             this.movement.SetDirection(Vector2.up);
         }
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
-            Debug.Log("left");
+           // Debug.Log("left");
             this.movement.SetDirection(Vector2.left);
         }
        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
-            Debug.Log("right");
+          //  Debug.Log("right");
             this.movement.SetDirection(Vector2.right);
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
-            Debug.Log("down");
+          //  Debug.Log("down");
             this.movement.SetDirection(Vector2.down);
         }
     }

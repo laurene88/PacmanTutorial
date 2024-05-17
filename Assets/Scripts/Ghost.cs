@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
+
     public Movement movement { get; private set; }
     public GhostHome home { get; private set; }
     public GhostScatter scatter { get; private set; }
@@ -41,6 +43,8 @@ public class Ghost : MonoBehaviour
 
         if (home != initialBehaviour)
         {
+
+           // Debug.Log("home is not initial behaviour on " + this.name + " so im disabling on start");
             home.Disable();
         }
 

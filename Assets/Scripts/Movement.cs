@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
     {
         if (Occupied(direction))
         {
-           // Debug.Log("occupied- cant move");
+          // Debug.Log("occupied- cant move");
             nextDirection = direction;
         }
         if (forced || !Occupied(direction)) // if forced, or not occupied (can move), set direction to that, & clear 'next direction'
@@ -78,9 +78,9 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public bool Occupied(Vector2 direction)
+    public bool Occupied(Vector2 direction) //TODO SOMETIMES GHOSTS GET STUCK, IS IT BECAUSE BOX CAST WRONG? EG SIZES?
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0.0f, direction, 1f, obstacleLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0.0f, direction, 1.1f, obstacleLayer);
         return hit.collider != null; //if you hit something it wont be null. 
     }
 
