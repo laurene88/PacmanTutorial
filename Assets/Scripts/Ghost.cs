@@ -28,30 +28,41 @@ public class Ghost : MonoBehaviour
 
     public void Start()
     {
-        //ResetState();
+        //ResetState(); - //this is called from game manager instead from NewGame
     }
 
     public void ResetState()
     {
+        Debug.Log(this.name + "reseting state from Ghost/");
        // Debug.Log("reset ghost state - " + gameObject.name);
         gameObject.SetActive(true);
         movement.ResetState();
 
-        scatter.Enable(); //start in scatter.
+       //scatter.Enable(); //start in scatter.
         frightened.Disable();
         chase.Disable();
 
         if (home != initialBehaviour)
         {
-
-           // Debug.Log("home is not initial behaviour on " + this.name + " so im disabling on start");
             home.Disable();
+        }
+
+        if (scatter!= initialBehaviour)
+        {
+           scatter.Disable();
         }
 
         if (initialBehaviour != null)
         {
             initialBehaviour.Enable();
         }
+    }
+
+
+public void SetPosition(Vector3 position)
+    {
+        position.z = transform.position.z;
+        transform.position = position;
     }
 
     //check for ghost collisions

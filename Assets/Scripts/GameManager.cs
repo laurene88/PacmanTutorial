@@ -121,6 +121,11 @@ public class GameManager : MonoBehaviour
 
     public void PowerPelletEaten(PowerPellet pellet)
     {
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].frightened.Enable(pellet.duration);
+            Debug.Log("power pellet eaten, all ghosts should be frightened.");
+        }
         PelletEaten(pellet);
         CancelInvoke(); //so resets to longer duration if already eaten a pellet
         Invoke(nameof(ResetGhostMultipler), pellet.duration);

@@ -7,10 +7,9 @@ public class GhostChase : GhostBehaviour
 
     private void OnDisable()
     {
-        this.ghost.scatter.Enable();
+        this.ghost.scatter.Enable(); //this is being called at game end?
+        Debug.Log(this.name+"Disable chase & Enable scatter");
     }
-
-
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
