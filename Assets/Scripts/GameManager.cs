@@ -130,7 +130,6 @@ public class GameManager : MonoBehaviour
         CancelInvoke(); //so resets to longer duration if already eaten a pellet
         Invoke(nameof(ResetGhostMultipler), pellet.duration);
      
-        //TODO change ghost state when power pellet is eaten
     }
 
     private void ResetGhostMultipler() 

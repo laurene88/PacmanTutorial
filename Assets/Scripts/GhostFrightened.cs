@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GhostFrightened : GhostBehaviour
 {
-    // TODO THIS DOESNT WORK
-    //TODO issue is now that frightened is being auto called with a duration of 0 at start?
     public SpriteRenderer body;
     public SpriteRenderer eyes;
     public SpriteRenderer blue;
@@ -84,6 +82,7 @@ public class GhostFrightened : GhostBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
+            Debug.Log("yep pacman hit a frightened ghost");
             if (enabled)
                 Eaten();
         }
